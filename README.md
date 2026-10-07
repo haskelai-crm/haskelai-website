@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HaskelAI website
 
-## Getting Started
+Next.js marketing website, exported as static files for GitHub Pages.
+Run commands from this directory, the website's Git repository root.
 
-First, run the development server:
+## Local development
 
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. Run `npm run build` to generate the production site
+in `out/`. Serve this directory with a static HTTP server; `next start` is not
+compatible with static exports.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy to GitHub Pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Push this repository to GitHub, including `.github/workflows/deploy-pages.yml`.
+2. In **Settings > Pages > Build and deployment**, select **GitHub Actions**.
+3. Push to the default branch (`master` or `main`), or run **Deploy website to
+   GitHub Pages** manually from the **Actions** tab on the default branch.
+4. Open the site URL shown by the deployment job or **Settings > Pages**.
 
-## Learn More
+The workflow installs locked dependencies with Node.js 22, builds the website,
+and publishes `out/` using the official Pages actions. Only the default branch
+deploys. If it is renamed to something other than `master` or `main`, update
+the workflow's push branch list.
 
-To learn more about Next.js, take a look at the following resources:
+GitHub's Pages configuration supplies `NEXT_PUBLIC_BASE_PATH` at build time.
+Next.js applies this prefix to internal Link navigation and generated bundles.
+Trailing slashes export nested pages as `index.html` files, supporting direct
+visits and refreshes on Pages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To reproduce a project-site build locally in PowerShell:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```powershell
+$env:NEXT_PUBLIC_BASE_PATH = "/your-repository-name"
+npm run build
+Remove-Item Env:NEXT_PUBLIC_BASE_PATH
+```
 
-## Deploy on Vercel
+For a custom domain, configure it in **Settings > Pages** and configure its DNS,
+then rerun the workflow to rebuild with the updated base path.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Static hosting constraints
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GitHub Pages cannot run server actions, API routes, or runtime server rendering.
+Image server optimization is disabled. Inter is downloaded at build time and
+served with the exported site, so the build needs access to Google Fonts.
+
+The existing contact form only simulates submission, and `/login` has no page
+in this project. Publishing does not add a contact backend or authentication.
+
+See [GitHub's custom workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
