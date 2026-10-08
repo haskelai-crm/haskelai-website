@@ -9,7 +9,7 @@ export default function AboutPreview() {
           <p className="eyebrow text-accent mb-4">About the Company</p>
           <h2 className="text-3xl md:text-4xl font-bold display mb-6">Building intelligent software platforms.</h2>
           <p className="text-ink-2 text-lg leading-relaxed mb-8">
-            HaskelAI is a technology company focused on delivering premium, modern software solutions for businesses and educational institutions. We believe that enterprise software doesn't have to be clunky, and that AI is most powerful when it's quietly assisting you inside your everyday workflows.
+            HaskelAI is a technology company focused on delivering premium, modern software solutions for businesses and educational institutions. We believe that enterprise software doesn&apos;t have to be clunky, and that AI is most powerful when it&apos;s quietly assisting you inside your everyday workflows.
           </p>
           <Link href="/about" className="inline-flex items-center gap-2 text-accent font-medium hover:text-accent-2 transition-colors">
             Learn more about our mission

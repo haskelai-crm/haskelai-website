@@ -52,4 +52,40 @@ served with the exported site, so the build needs access to Google Fonts.
 The existing contact form only simulates submission, and `/login` has no page
 in this project. Publishing does not add a contact backend or authentication.
 
+## Partner registration
+
+`/partners` contains institution waitlist and industry expert application
+journeys. `/partners/application-status` uses email verification before fetching
+private status. The forms call the ERP public partner API directly from the
+browser because this site is a static export. Set `NEXT_PUBLIC_PARTNERS_API_URL`
+to the API origin (for example `https://api.example.com`) at **build time**.
+For GitHub Pages set the repository Actions variable `PARTNERS_API_URL`; the
+workflow maps it to the public build variable. No secret or privileged key may
+be placed in this variable.
+
+For local testing, create `.env.local` in this website's root with:
+
+```dotenv
+PARTNERS_API_URL=http://localhost:8080
+NEXT_PUBLIC_PARTNERS_API_URL=$PARTNERS_API_URL
+```
+
+Next.js expands the reference and exposes the `NEXT_PUBLIC_` value to the
+browser. Run the ERP backend on port 8080 and this site on port 3000. The local
+backend CORS defaults include `http://localhost:3000`. Restart `npm run dev`
+after changing `.env.local` if the development server does not reload it.
+
+Without an API origin, applicants can review the forms but submission and
+status lookup remain unavailable. The ERP backend now implements the public
+partner routes; deploy backend migrations V55 and V56, configure platform email delivery,
+and allow this website origin in backend CORS before setting the public API URL.
+See [the backend dependency document](docs/PARTNER-API-DEPENDENCIES.md) for
+the operational contract. The website does not create
+institutions, accounts, subscriptions, or assignments when a form is submitted.
+
+Run `npm run lint`, `npm run typecheck`, `npm test`, `npm run build`, and then
+`npm run test:export` to verify the site and exported routes. `npm test` uses
+Node.js 24's built-in TypeScript stripping; the Pages build can continue using
+Node.js 22.
+
 See [GitHub's custom workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).

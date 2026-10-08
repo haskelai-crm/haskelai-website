@@ -1,12 +1,11 @@
 import Link from "next/link";
-import FadeInSection from "@/components/ui/FadeInSection";
 
 export default function Hero() {
   return (
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         <div className="z-10 stagger">
-          <p className="eyebrow text-accent mb-4">Intelligent Software</p>
+          <p className="eyebrow text-accent mb-4">Intelligent Software · Institution early access</p>
           <h1 className="text-5xl md:text-6xl font-bold display leading-tight mb-6">
             Build smarter. <br />
             <span className="grad-text">Operate better.</span>
@@ -22,12 +21,13 @@ export default function Hero() {
               Explore Products
             </Link>
             <Link
-              href="/contact"
+              href="/partners/institutions"
               className="bg-surface text-ink border border-line px-7 py-3.5 rounded-md font-medium hover:bg-surface-2 transition-colors shadow-e1 lift"
             >
-              Talk to Us
+              Join Institution Waitlist
             </Link>
           </div>
+          <p className="mt-4 text-sm text-ink-3">Register your institution for early access to HaskelAI ERP and LMS. No account is needed to apply.</p>
         </div>
 
         {/* Abstract Ecosystem Visual */}

@@ -14,7 +14,7 @@ export default function AISection() {
               AI that works <span className="grad-text-ai">inside your workflow</span>
             </h2>
             <p className="text-ink-2 text-lg">
-              AI shouldn't be an isolated chatbot. It should assist your users directly within their business and learning workflows.
+              AI shouldn&apos;t be an isolated chatbot. It should assist your users directly within their business and learning workflows.
             </p>
           </div>
         </FadeInSection>

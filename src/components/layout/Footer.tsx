@@ -55,6 +55,8 @@ export default function Footer() {
                 Contact
               </Link>
             </li>
+            <li><Link href="/partners" className="hover:text-accent transition-colors">Partner With Us</Link></li>
+            <li><Link href="/partners/institutions" className="hover:text-accent transition-colors">Institution Waitlist</Link></li>
           </ul>
         </div>
 

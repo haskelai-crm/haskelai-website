@@ -31,7 +31,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8 font-medium text-sm">
+        <div className="hidden lg:flex items-center gap-6 font-medium text-sm">
           <Link href="/products" className="text-ink-2 hover:text-ink transition-colors">
             Products
           </Link>
@@ -41,28 +41,31 @@ export default function Navbar() {
           <Link href="/about" className="text-ink-2 hover:text-ink transition-colors">
             About
           </Link>
+          <Link href="/partners" className="text-ink-2 hover:text-ink transition-colors">
+            Partner With Us
+          </Link>
           <Link href="/contact" className="text-ink-2 hover:text-ink transition-colors">
             Contact
           </Link>
         </div>
 
         {/* Right side */}
-        <div className="hidden md:flex items-center gap-4 text-sm font-medium">
-          <Link href="/login" className="text-ink-2 hover:text-ink transition-colors">
-            Sign In
+        <div className="hidden lg:flex items-center gap-4 text-sm font-medium">
+          <Link href="/partners/application-status" className="text-ink-2 hover:text-ink transition-colors">
+            Check Status
           </Link>
           <Link
-            href="/contact"
-            className="bg-ink text-white px-5 py-2.5 rounded-md hover:bg-ink-2 transition-colors shadow-e1 lift"
+            href="/partners/institutions"
+            className="bg-accent text-white px-5 py-2.5 rounded-md hover:bg-accent-2 transition-colors shadow-e1 lift"
           >
-            Get Started
+            Join Waitlist
           </Link>
         </div>
 
         {/* Mobile menu button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden p-2 text-ink"
+          className="lg:hidden p-2 text-ink"
           aria-label="Toggle Menu"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -73,7 +76,7 @@ export default function Navbar() {
 
       {/* Mobile Nav Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full glass border-b border-line px-6 py-4 flex flex-col gap-4 ${
+        className={`lg:hidden absolute top-full left-0 w-full glass border-b border-line px-6 py-4 flex flex-col gap-4 ${
           isMobileMenuOpen ? "flex" : "hidden"
         }`}
       >
@@ -86,15 +89,18 @@ export default function Navbar() {
         <Link href="/about" className="text-ink-2 font-medium" onClick={() => setIsMobileMenuOpen(false)}>
           About
         </Link>
+        <Link href="/partners" className="text-ink-2 font-medium" onClick={() => setIsMobileMenuOpen(false)}>
+          Partner With Us
+        </Link>
         <Link href="/contact" className="text-ink-2 font-medium" onClick={() => setIsMobileMenuOpen(false)}>
           Contact
         </Link>
         <hr className="border-line" />
-        <Link href="/login" className="text-ink-2 font-medium" onClick={() => setIsMobileMenuOpen(false)}>
-          Sign In
+        <Link href="/partners/application-status" className="text-ink-2 font-medium" onClick={() => setIsMobileMenuOpen(false)}>
+          Check Application Status
         </Link>
-        <Link href="/contact" className="bg-ink text-white px-4 py-2 rounded-md text-center" onClick={() => setIsMobileMenuOpen(false)}>
-          Get Started
+        <Link href="/partners/institutions" className="bg-accent text-white px-4 py-2 rounded-md text-center" onClick={() => setIsMobileMenuOpen(false)}>
+          Join Institution Waitlist
         </Link>
       </div>
     </nav>

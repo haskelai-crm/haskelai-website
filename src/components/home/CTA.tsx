@@ -21,8 +21,14 @@ export default function CTA() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
-                  href="/products"
+                  href="/partners/institutions"
                   className="bg-accent text-white px-7 py-3.5 rounded-md font-medium hover:bg-accent-2 transition-colors shadow-e2"
+                >
+                  Join Institution Waitlist
+                </Link>
+                <Link
+                  href="/products"
+                  className="bg-surface/10 text-white border border-line-2/20 backdrop-blur-md px-7 py-3.5 rounded-md font-medium hover:bg-surface/20 transition-colors"
                 >
                   Explore Products
                 </Link>

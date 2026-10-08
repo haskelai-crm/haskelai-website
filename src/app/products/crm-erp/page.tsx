@@ -1,5 +1,6 @@
 import FadeInSection from "@/components/ui/FadeInSection";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "CRM & ERP Platform | HaskelAI",
@@ -23,6 +24,10 @@ export default function CrmErpPage() {
           <div className="inline-block bg-surface-2 text-ink-3 px-6 py-3 rounded-full text-sm font-medium border border-line">
             Detailed product portal coming soon.
           </div>
+          <p className="mt-8 text-ink-2">Interested in bringing HaskelAI ERP to your institution?</p>
+          <Link href="/partners/institutions" className="mt-4 inline-flex rounded-md bg-accent px-6 py-3 font-semibold text-white hover:bg-accent-2">
+            Join Institution Waitlist →
+          </Link>
         </FadeInSection>
       </div>
     </main>

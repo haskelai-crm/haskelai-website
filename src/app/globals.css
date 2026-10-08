@@ -20,6 +20,9 @@
   --color-ai: #6b5bb5;
   --color-ai-soft: #f0edfa;
 
+  --color-danger: #b42318;
+  --color-danger-soft: #fff0ee;
+
   --font-sans: 'Inter var', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
   --radius-xs: 6px;
