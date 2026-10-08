@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import VisualAtmosphere from "@/components/ui/VisualAtmosphere";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans bg-bg text-ink relative antialiased`}>
+        <VisualAtmosphere />
         <Navbar />
         {children}
         <Footer />

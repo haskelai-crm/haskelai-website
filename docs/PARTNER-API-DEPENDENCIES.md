@@ -9,6 +9,14 @@ for the website origin, and `ERP_PARTNERS_PUBLIC_API_BASE_URL` set to the public
 API origin so resume upload tickets use the browser-reachable URL. Add both
 the website and ERP frontend origins to `ERP_ALLOWED_ORIGINS`, and
 build the website with `NEXT_PUBLIC_PARTNERS_API_URL` set to that API origin.
+For the current GitHub Pages deployment, the website origin is
+`https://haskelai-crm.github.io` (without `/haskelai-website` or a trailing
+slash). Append it to the backend's existing `ERP_ALLOWED_ORIGINS` value in
+Coolify, preserving the ERP frontend origin, then redeploy the backend. For
+example, if the ERP frontend is `https://erp-dev.haskelai.in`, use
+`ERP_ALLOWED_ORIGINS=https://erp-dev.haskelai.in,https://haskelai-crm.github.io`.
+The deployed partner endpoint returned `403 Invalid CORS request` for this
+GitHub Pages origin on 2026-10-08, while the ERP frontend origin returned 200.
 
 | Method and path | Browser request | Expected response |
 |---|---|---|

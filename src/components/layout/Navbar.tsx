@@ -12,13 +12,13 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll(); window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12 glass ${
+      className={`glass-nav fixed z-50 transition-all duration-300 py-4 px-6 md:px-12 glass ${
         isScrolled ? "bg-surface/90 backdrop-blur-md shadow-e1 border-line border-b" : "border-transparent border-b"
       }`}
     >
@@ -66,7 +66,7 @@ export default function Navbar() {
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="lg:hidden p-2 text-ink"
-          aria-label="Toggle Menu"
+          aria-label="Toggle Menu" aria-expanded={isMobileMenuOpen} aria-controls="mobile-navigation"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -76,7 +76,7 @@ export default function Navbar() {
 
       {/* Mobile Nav Menu */}
       <div
-        className={`lg:hidden absolute top-full left-0 w-full glass border-b border-line px-6 py-4 flex flex-col gap-4 ${
+        id="mobile-navigation" className={`mobile-glass-menu lg:hidden absolute top-full left-0 w-full glass border-b border-line px-6 py-4 flex-col gap-4 ${
           isMobileMenuOpen ? "flex" : "hidden"
         }`}
       >

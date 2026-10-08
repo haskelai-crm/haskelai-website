@@ -79,6 +79,10 @@ Without an API origin, applicants can review the forms but submission and
 status lookup remain unavailable. The ERP backend now implements the public
 partner routes; deploy backend migrations V55 and V56, configure platform email delivery,
 and allow this website origin in backend CORS before setting the public API URL.
+For the current GitHub Pages site, add `https://haskelai-crm.github.io` to the
+backend's `ERP_ALLOWED_ORIGINS`; the `/haskelai-website` path is not part of a
+CORS origin. Preserve the ERP frontend origin already in that setting and
+redeploy the backend after changing it.
 See [the backend dependency document](docs/PARTNER-API-DEPENDENCIES.md) for
 the operational contract. The website does not create
 institutions, accounts, subscriptions, or assignments when a form is submitted.

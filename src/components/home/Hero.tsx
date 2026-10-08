@@ -2,10 +2,10 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden">
+    <section className="hero-section relative pt-36 pb-20 md:pt-48 md:pb-24 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         <div className="z-10 stagger">
-          <p className="eyebrow text-accent mb-4">Intelligent Software · Institution early access</p>
+          <p className="hero-badge eyebrow text-accent mb-6">Intelligent Software · Institution early access</p>
           <h1 className="text-5xl md:text-6xl font-bold display leading-tight mb-6">
             Build smarter. <br />
             <span className="grad-text">Operate better.</span>
@@ -31,8 +31,8 @@ export default function Hero() {
         </div>
 
         {/* Abstract Ecosystem Visual */}
-        <div className="relative h-[400px] md:h-[500px] z-10 hidden md:block">
-          {/* Central Node */}
+        <div className="ecosystem relative h-[320px] sm:h-[400px] md:h-[500px] z-10">
+          <div className="ecosystem-orbit" aria-hidden="true" /><div className="ecosystem-orbit ecosystem-orbit-outer" aria-hidden="true" /><p className="ecosystem-caption">ONE CONNECTED ECOSYSTEM</p>{/* Central Node */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-surface rounded-2xl shadow-e3 flex items-center justify-center z-20 animate-float border border-line glass">
             <div className="w-12 h-12 rounded-lg bg-accent flex items-center justify-center text-white font-bold text-2xl">
               H
@@ -81,7 +81,7 @@ export default function Hero() {
           </div>
 
           {/* Connecting Lines (SVG) */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" style={{ opacity: 0.4 }}>
+          <svg aria-hidden="true" className="ecosystem-connections absolute inset-0 w-full h-full pointer-events-none z-0" style={{ opacity: 0.4 }}>
             <line x1="50%" y1="50%" x2="25%" y2="25%" stroke="var(--color-line-2)" strokeWidth="2" strokeDasharray="4 4" />
             <line x1="50%" y1="50%" x2="75%" y2="25%" stroke="var(--color-line-2)" strokeWidth="2" strokeDasharray="4 4" />
             <line x1="50%" y1="50%" x2="25%" y2="75%" stroke="var(--color-line-2)" strokeWidth="2" strokeDasharray="4 4" />
